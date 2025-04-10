@@ -1,9 +1,17 @@
 import React from "react";
 
-type Props = {};
+import QuestionForm from "@/components/forms/QuestionForm";
 
-const AskAQuestion = (props: Props) => {
-  return <div>AskAQuestion</div>;
+const AskAQuestion = () => {
+  return (
+    <>
+      <h1 className="h1-bold text-dark100_light900">Ask a question</h1>
+
+      <div className="mt-9">
+        <QuestionForm />
+      </div>
+    </>
+  );
 };
 
 export default AskAQuestion;

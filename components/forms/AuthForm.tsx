@@ -51,7 +51,7 @@ const AuthForm = <T extends FieldValues>({
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(handleSubmit)}
-        className='mt-10 space-y-6'
+        className="mt-10 space-y-6"
       >
         {Object.keys(defaultValues).map((field) => (
           <FormField
@@ -59,8 +59,8 @@ const AuthForm = <T extends FieldValues>({
             control={form.control}
             name={field as Path<T>}
             render={({ field }) => (
-              <FormItem className='flex w-full flex-col gap-2.5'>
-                <FormLabel className='paragraph-medium text-dark400_light700'>
+              <FormItem className="flex w-full flex-col gap-2.5">
+                <FormLabel className="paragraph-medium text-dark400_light700">
                   {field.name === "email"
                     ? "Email Address"
                     : field.name.charAt(0).toUpperCase() + field.name.slice(1)}
@@ -70,7 +70,7 @@ const AuthForm = <T extends FieldValues>({
                     required
                     type={field.name === "password" ? "password" : "text"}
                     {...field}
-                    className='paragraph-regular background-light900_dark300 light-border-2 text-dark300_light700 no-focus min-h-12 rounded-1.5 border'
+                    className="paragraph-regular background-light900_dark300 light-border-2 text-dark300_light700 no-focus min-h-12 rounded-1.5 border"
                   />
                 </FormControl>
                 <FormMessage />
@@ -81,7 +81,7 @@ const AuthForm = <T extends FieldValues>({
 
         <Button
           disabled={form.formState.isSubmitting}
-          className='primary-gradient paragraph-medium min-h-12 w-full rounded-2 px-4 py-3 font-inter !text-light-900'
+          className="primary-gradient paragraph-medium min-h-12 w-full rounded-2 px-4 py-3 font-inter !text-light-900"
         >
           {form.formState.isSubmitting
             ? buttonText === "Sign In"
@@ -92,10 +92,10 @@ const AuthForm = <T extends FieldValues>({
 
         {formType === "SIGN_IN" ? (
           <p>
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <Link
               href={ROUTES.SIGN_UP}
-              className='paragraph-semibold primary-text-gradient'
+              className="paragraph-semibold primary-text-gradient"
             >
               Sign up
             </Link>
@@ -105,7 +105,7 @@ const AuthForm = <T extends FieldValues>({
             Already have an account?{" "}
             <Link
               href={ROUTES.SIGN_IN}
-              className='paragraph-semibold primary-text-gradient'
+              className="paragraph-semibold primary-text-gradient"
             >
               Sign in
             </Link>
