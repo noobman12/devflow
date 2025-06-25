@@ -10,7 +10,7 @@ const formatResponse = (
   responseType: ResponseType,
   status: number,
   message: string,
-  errors?: Record<string, string[] | undefined>
+  errors?: Record<string, string[]> | undefined
 ) => {
   const responseContent = {
     success: false,
@@ -19,20 +19,19 @@ const formatResponse = (
       details: errors,
     },
   };
+
   return responseType === "api"
     ? NextResponse.json(responseContent, { status })
     : { status, ...responseContent };
 };
 
-export const handleError = (
-  error: unknown,
-  responseType: ResponseType = "server"
-) => {
+const handleError = (error: unknown, responseType: ResponseType = "server") => {
   if (error instanceof RequestError) {
     logger.error(
       { err: error },
       `${responseType.toUpperCase()} Error: ${error.message}`
     );
+
     return formatResponse(
       responseType,
       error.statusCode,
@@ -65,7 +64,8 @@ export const handleError = (
     return formatResponse(responseType, 500, error.message);
   }
 
-  logger.error({ err: error }, "an unexpected error occurred");
-
-  return formatResponse(responseType, 500, "an unexpected error occurred");
+  logger.error({ err: error }, "An unexpected error occurred");
+  return formatResponse(responseType, 500, "An unexpected error occurred");
 };
+
+export default handleError;

@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: ["class", "media"],
+  darkMode: ["class"],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -26,15 +26,9 @@ const config: Config = {
           "500": "#7B8EC8",
           "700": "#DCE3F1",
           "800": "#F4F6F8",
-          "850": "#F1F3F5",
+          "850": "#FDFDFD",
           "900": "#FFFFFF",
         },
-      },
-      backgroundImage: {
-        "dark-gradient":
-          "linear-gradient(232deg, rgba(23, 28, 35, 0.41) 0%, #191D26 100.74%)",
-        "auth-dark": 'url("/img/auth-dark.png")',
-        "auth-light": 'url("/img/auth-light.png")',
       },
       boxShadow: {
         "light-100":
@@ -58,9 +52,12 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      backgroundImage: {
+        "auth-dark": 'url("/images/auth-dark.png")',
+        "auth-light": 'url("/images/auth-light.png")',
+      },
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 };
-
 export default config;

@@ -1,8 +1,6 @@
 import React from "react";
 
-type Props = {};
-
-const Tags = (props: Props) => {
+const Tags = () => {
   return <div>Tags</div>;
 };
 
